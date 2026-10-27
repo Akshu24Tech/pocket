@@ -2,7 +2,7 @@
 
 Named side spaces inside a chat, each with its own memory.
 
-You're deep in a project and a side topic shows up: a LinkedIn draft, a movie list, a random idea. If you drop it in the main chat, the project context gets messy. Pocket gives each side topic its own room. You hop in, do the thing, hop out, and the main project stays clean. Next time you open that pocket, it remembers where you left off.
+You're deep in a project and a side topic shows up: a movie list, a random idea, a quick question. If you drop it in the main chat, the project context gets messy. Pocket gives each side topic its own room. You hop in, do the thing, hop out, and the main project stays clean. Next time you open that pocket, it remembers where you left off.
 
 ## Commands
 
@@ -22,21 +22,21 @@ Everything else is plain language:
 ## Example
 
 ```
-You:    /pocket linkedin
-Claude: 👝 linkedin
+You:    /pocket ideas
+Claude: 👝 ideas
 
-You:    Draft a post about my new agent. Keep it casual, no em dashes.
-Claude: 👝 linkedin
-        [draft]
+You:    Help me brainstorm names for my side project. Keep it casual.
+Claude: 👝 ideas
+        [brainstorm]
 
 You:    /back
-Claude: ✅ Back in main. linkedin saved: casual agent post draft
+Claude: ✅ Back in main. ideas saved: side project name brainstorm
 
 ... later ...
 
-You:    /pocket linkedin
-Claude: 👝 linkedin
-        Left off: draft ready, needs a stronger hook.
+You:    /pocket ideas
+Claude: 👝 ideas
+        Left off: shortlisted three names, need to pick one.
 ```
 
 ## How it works
@@ -61,7 +61,7 @@ In a normal chat, earlier messages still exist in the model's context, so isolat
 ## Quick tests
 
 1. **Leak:** in main say "Codename is BLUEJAY." Open `/pocket test` and ask for the codename. It should not know.
-2. **Resume:** in `/pocket linkedin`, agree a style and draft a post. `/back`. Later `/pocket linkedin`. It should say where you left off and still have the style and draft.
+2. **Resume:** in `/pocket ideas`, agree a style and write a short draft. `/back`. Later `/pocket ideas`. It should say where you left off and still have the style and draft.
 3. **Isolation:** after `/back`, ask "what were we discussing?" It should answer with main only.
 
 ## License
